@@ -26,6 +26,8 @@ class Glide:
 
     def speed(self):
         """Returns the average speed in the glide, km/h."""
+        if math.fabs(self.time_change()) < 1e-7:
+            return 0.0
         return self.track_length / (self.time_change() / 3600.0)
 
     def alt_change(self):

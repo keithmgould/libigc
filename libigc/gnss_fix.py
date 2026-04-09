@@ -120,8 +120,8 @@ class GNSSFix:
     def to_B_record(self):
         """Reconstructs an IGC B-record."""
         rawtime = int(self.rawtime)
-        hours = rawtime / 3600
-        minutes = (rawtime % 3600) / 60
+        hours = rawtime // 3600
+        minutes = (rawtime % 3600) // 60
         seconds = rawtime % 60
 
         if self.lat < 0.0:
@@ -131,8 +131,8 @@ class GNSSFix:
             lat = self.lat
             lat_sign = 'N'
         lat = int(round(lat*60000.0))
-        lat_deg = lat / 60000
-        lat_min = (lat % 60000) / 1000
+        lat_deg = lat // 60000
+        lat_min = (lat % 60000) // 1000
         lat_min_dec = lat % 1000
 
         if self.lon < 0.0:
@@ -142,8 +142,8 @@ class GNSSFix:
             lon = self.lon
             lon_sign = 'E'
         lon = int(round(lon*60000.0))
-        lon_deg = lon / 60000
-        lon_min = (lon % 60000) / 1000
+        lon_deg = lon // 60000
+        lon_min = (lon % 60000) // 1000
         lon_min_dec = lon % 1000
 
         validity = self.validity

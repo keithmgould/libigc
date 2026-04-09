@@ -28,4 +28,4 @@ def _rawtime_float_to_hms(timef):
     time = int(round(timef))
     hms = collections.namedtuple('hms', ['hours', 'minutes', 'seconds'])
 
-    return hms((time/3600), (time % 3600)/60, time % 60)
+    return hms(time // 3600, (time % 3600) // 60, time % 60)
